@@ -9,13 +9,13 @@ export class Forms{
         cy.get(selector.inputEmail).type(testdata.email)
         cy.get(selector.genderRadioBtn).click()
         cy.get(selector.inputMobileNo).type(testdata.mobileNumber)
-        //cy.get(selector.inputDate).click()
-        //cy.get(selector.inputDate).click()
-        //cy.get(selector.selectYear).click()
-        //cy.get(selector.selectMonth).click()
-        //cy.get(selector.selectDay).click()
+        cy.get(selector.inputDate).click()
+        cy.get(selector.selectYear).select('1980')
+        cy.get(selector.selectMonth).select('May')
+        cy.get(selector.selectDay).click()
         cy.get(selector.inputSubject).type(testdata.subject + "{Enter}")
         cy.get(selector.hobbiesCheckbox).click()
+        cy.get('#uploadPicture').selectFile('/Users/gaurimishra/Desktop/qa/assessment/cypress/fixtures/download.jpeg',{force:true})
         cy.get(selector.inputCurrentAddress).type(testdata.currentAddress)
         cy.get(selector.selectState).type("N {Enter}")
         cy.get(selector.selectCity).type("D {Enter}")
@@ -26,6 +26,8 @@ export class Forms{
         cy.get('tr>td').contains(testdata.mobileNumber)
         cy.get('tr>td').contains(testdata.subject)
         cy.get('tr>td').contains(testdata.currentAddress)
+        cy.get('tr>td').contains('download.jpeg')
+
     }
 
 }
